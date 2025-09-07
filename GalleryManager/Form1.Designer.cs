@@ -31,17 +31,18 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            bt_addPicture = new Button();
             tabPage3 = new TabPage();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
+
             tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+
+            tabPage2.SuspendLayout();
+
             SuspendLayout();
             // 
             // tabControl1
@@ -54,20 +55,21 @@
             tabControl1.Margin = new Padding(2, 1, 2, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(816, 467);
+            tabControl1.Size = new Size(816, 365);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(pictureBox3);
-            tabPage1.Controls.Add(pictureBox2);
-            tabPage1.Controls.Add(pictureBox1);
+
             tabPage1.Controls.Add(dataGridView1);
+
             tabPage1.Location = new Point(4, 24);
             tabPage1.Margin = new Padding(2, 1, 2, 1);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2, 1, 2, 1);
-            tabPage1.Size = new Size(808, 439);
+
+            tabPage1.Size = new Size(808, 337);
+
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gallery";
             tabPage1.UseVisualStyleBackColor = true;
@@ -75,6 +77,9 @@
             // 
             // tabPage2
             // 
+
+            tabPage2.Controls.Add(bt_addPicture);
+
             tabPage2.Location = new Point(4, 24);
             tabPage2.Margin = new Padding(2, 1, 2, 1);
             tabPage2.Name = "tabPage2";
@@ -83,6 +88,22 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Add Image";
             tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.DragDrop += DD;
+            tabPage2.DragEnter += DE;
+            // 
+            // bt_addPicture
+            // 
+            bt_addPicture.BackColor = Color.Black;
+            bt_addPicture.Dock = DockStyle.Fill;
+            bt_addPicture.Font = new Font("Segoe UI Historic", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bt_addPicture.ForeColor = Color.Honeydew;
+            bt_addPicture.Location = new Point(2, 1);
+            bt_addPicture.Name = "bt_addPicture";
+            bt_addPicture.Size = new Size(804, 335);
+            bt_addPicture.TabIndex = 0;
+            bt_addPicture.Text = "Add Picture";
+            bt_addPicture.UseVisualStyleBackColor = false;
+            bt_addPicture.Click += bt_addPicture_Click;
             // 
             // tabPage3
             // 
@@ -131,17 +152,19 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(816, 467);
+
+            ClientSize = new Size(816, 365);
+
             Controls.Add(tabControl1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Form1";
             Text = "Form1";
             tabControl1.ResumeLayout(false);
+
             tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+
+            tabPage2.ResumeLayout(false);
+
             ResumeLayout(false);
         }
 
@@ -151,9 +174,10 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tabPage3;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+
         private DataGridView dataGridView1;
+
+        private Button bt_addPicture;
+
     }
 }
