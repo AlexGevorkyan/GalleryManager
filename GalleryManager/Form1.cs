@@ -48,7 +48,7 @@ namespace GalleryManager
         private void LoadPicturesTable()
         {
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GalleryDb;Integrated Security=True";
-            string query = "SELECT Id, FileName, ImagePath, FileSize, CreatedAt, ImageData FROM Pictures";
+            string query = "SELECT Id, FileName, ImagePath, FileSize, CreatedAt FROM Pictures";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -105,7 +105,7 @@ namespace GalleryManager
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        //private void tabPage1_Click(object sender, EventArgs e)
 
         private void TabPage2_DragEnter(object? sender, DragEventArgs e)
         {

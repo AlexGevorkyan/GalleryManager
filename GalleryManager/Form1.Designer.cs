@@ -33,9 +33,6 @@
             tabPage2 = new TabPage();
             bt_addPicture = new Button();
             tabPage3 = new TabPage();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
 
@@ -73,7 +70,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gallery";
             tabPage1.UseVisualStyleBackColor = true;
-            tabPage1.Click += tabPage1_Click;
             // 
             // tabPage2
             // 
@@ -114,30 +110,6 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Settings";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Location = new Point(549, 194);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(228, 189);
-            pictureBox3.TabIndex = 7;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Location = new Point(273, 194);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(228, 189);
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(5, 194);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(228, 189);
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
             // 
             // dataGridView1
             // 
