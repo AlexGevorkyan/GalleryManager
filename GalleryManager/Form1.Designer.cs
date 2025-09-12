@@ -34,6 +34,7 @@
             tabPage2 = new TabPage();
             bt_addPicture = new Button();
             tabPage3 = new TabPage();
+
             maxFileSize1 = new TextBox();
             label2 = new Label();
             maxFileSize = new TextBox();
@@ -61,11 +62,11 @@
             // tabPage1
             // 
             tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Location = new Point(8, 46);
-            tabPage1.Margin = new Padding(4, 2, 4, 2);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Margin = new Padding(2, 1, 2, 1);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(4, 2, 4, 2);
-            tabPage1.Size = new Size(1499, 725);
+            tabPage1.Padding = new Padding(2, 1, 2, 1);
+            tabPage1.Size = new Size(808, 337);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gallery";
             tabPage1.UseVisualStyleBackColor = true;
@@ -73,27 +74,24 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(-2, 0);
-            dataGridView1.Margin = new Padding(6, 6, 6, 6);
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(2, 1);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
             dataGridView1.ScrollBars = ScrollBars.Vertical;
-            dataGridView1.Size = new Size(1504, 401);
+            dataGridView1.Size = new Size(804, 335);
             dataGridView1.TabIndex = 4;
             // 
             // tabPage2
             // 
             tabPage2.Controls.Add(bt_addPicture);
-            tabPage2.Location = new Point(8, 46);
-            tabPage2.Margin = new Padding(4, 2, 4, 2);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Margin = new Padding(2, 1, 2, 1);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(4, 2, 4, 2);
             tabPage2.Size = new Size(1499, 725);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Add Image";
             tabPage2.UseVisualStyleBackColor = true;
-            tabPage2.DragDrop += DD;
-            tabPage2.DragEnter += DE;
             // 
             // bt_addPicture
             // 
@@ -112,61 +110,50 @@
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(maxFileSize1);
             tabPage3.Controls.Add(label2);
             tabPage3.Controls.Add(maxFileSize);
             tabPage3.Controls.Add(label1);
-            tabPage3.Location = new Point(8, 46);
-            tabPage3.Margin = new Padding(4, 2, 4, 2);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Margin = new Padding(2, 1, 2, 1);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1499, 725);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Settings";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // maxFileSize1
-            // 
-            maxFileSize1.Location = new Point(50, 226);
-            maxFileSize1.Margin = new Padding(6, 6, 6, 6);
-            maxFileSize1.Name = "maxFileSize1";
-            maxFileSize1.Size = new Size(873, 39);
-            maxFileSize1.TabIndex = 3;
-            maxFileSize1.Text = "Ми можемо працювати лише з файлами з такими розширеннями: .png , .jpg , .gift";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(50, 188);
-            label2.Margin = new Padding(6, 0, 6, 0);
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.Location = new Point(565, 130);
             label2.Name = "label2";
-            label2.Size = new Size(70, 32);
-            label2.TabIndex = 2;
-            label2.Text = "Text2";
+            label2.Size = new Size(169, 32);
+            label2.TabIndex = 5;
+            label2.Text = "в мегабайтах";
             // 
             // maxFileSize
             // 
-            maxFileSize.Location = new Point(45, 85);
-            maxFileSize.Margin = new Padding(6, 6, 6, 6);
+            maxFileSize.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            maxFileSize.Location = new Point(380, 127);
             maxFileSize.Name = "maxFileSize";
-            maxFileSize.Size = new Size(329, 39);
-            maxFileSize.TabIndex = 1;
-            maxFileSize.Text = "5000000";
+            maxFileSize.Size = new Size(179, 39);
+            maxFileSize.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 47);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(81, 130);
             label1.Name = "label1";
-            label1.Size = new Size(73, 32);
-            label1.TabIndex = 0;
-            label1.Text = "Текст";
+            label1.Size = new Size(293, 32);
+            label1.TabIndex = 3;
+            label1.Text = "Задайте розміри файлу";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1515, 779);
+            ClientSize = new Size(816, 365);
             Controls.Add(tabControl1);
             Margin = new Padding(4, 2, 4, 2);
             Name = "Form1";
@@ -186,14 +173,13 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tabPage3;
-        private Label label1;
-        private Label label2;
 
 
         private DataGridView dataGridView1;
 
         private Button bt_addPicture;
+        private Label label2;
         public TextBox maxFileSize;
-        public TextBox maxFileSize1;
+        private Label label1;
     }
 }

@@ -48,15 +48,7 @@ namespace GalleryManager
             {
                 Directory.CreateDirectory(localDir);
             }
-            fileSizer = maxFileSize1.Text;
-            MessageBox.Show(fileSizer);
             fileSize = maxFileSize.Text;
-// MessageBox.Show(fileSize);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-             
         }
 
 
@@ -82,43 +74,37 @@ namespace GalleryManager
         {
             if (e.RowIndex < 0) return;
 
-            byte[] imageData = dataGridView1.Rows[e.RowIndex].Cells["ImageData"].Value as byte[];
-
             try
             {
-                using (MemoryStream ms = new MemoryStream(imageData))
+                // Отримуємо шлях до зображення з таблиці
+                string imagePath = dataGridView1.Rows[e.RowIndex].Cells["ImagePath"].Value.ToString();
+
+                if (string.IsNullOrEmpty(imagePath) || !File.Exists(imagePath))
                 {
+                    MessageBox.Show("Файл зображення не знайдено: " + imagePath);
+                    return;
+                }
+
+                // Завантажуємо картинку з файлу
+                using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    Image img = Image.FromStream(fs);
+
                     DataTable table = (DataTable)dataGridView1.DataSource;
                     int selectedIndex = e.RowIndex;
                     ImageForm form = new ImageForm(table, selectedIndex);
 
-                    Image img = Image.FromStream(ms);
                     form.pictureBox1.Image = img;
                     form.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                     form.Show();
-                    //Image img = Image.FromStream(ms);
-
-                    //switch (imageCounter % 3)
-                    //{
-                    //    case 0:
-                    //        pictureBox1.Image = img;
-                    //        break;
-                    //    case 1:
-                    //        pictureBox2.Image = img;
-                    //        break;
-                    //    case 2:
-                    //        pictureBox3.Image = img;
-                    //        break;
-                    //}
-
-                    //imageCounter++;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ïîìèëêà ïðè çàâàíòàæåíí³ çîáðàæåííÿ: " + ex.Message);
+                MessageBox.Show("Помилка при завантаженні зображення: " + ex.Message);
             }
         }
+
 
         //private void tabPage1_Click(object sender, EventArgs e)
 
@@ -132,10 +118,21 @@ namespace GalleryManager
 
         private void TabPage2_DragDrop(object? sender, DragEventArgs e)
         {
+            long maxSize = GetMaxFileSizeBytes();
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
             foreach (string file in files)
             {
+                long fileSize = new FileInfo(file).Length;
+
+                if (fileSize > maxSize)
+                {
+                    MessageBox.Show(
+                        $"Файл {Path.GetFileName(file)} занадто великий! Максимальний розмір: {maxFileSize.Text} MB"
+                    );
+                    continue;
+                }
+
                 string fileName = Path.GetFileName(file);
                 string path = Path.Combine(localDir, fileName);
                 File.Copy(file, path, true);
@@ -149,8 +146,8 @@ namespace GalleryManager
                 };
                 context.Pictures.Add(picture);
                 context.SaveChanges();
-
-                MessageBox.Show("Çîáðàæåííÿ äîäàíî!");
+                LoadPicturesTable();
+                MessageBox.Show("Успішно додано!");
             }
         }
 
@@ -160,6 +157,14 @@ namespace GalleryManager
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                long maxSize = GetMaxFileSizeBytes();
+                long fileSize = new FileInfo(ofd.FileName).Length;
+
+                if (fileSize > maxSize)
+                {
+                    MessageBox.Show($"Файл занадто великий! Максимальний розмір: {maxFileSize.Text} MB");
+                    return;
+                }
                 string path = Path.Combine(localDir, Path.GetFileName(ofd.FileName));
                 File.Copy(ofd.FileName, path, true);
 
@@ -172,18 +177,17 @@ namespace GalleryManager
                 };
                 context.Pictures.Add(picture);
                 context.SaveChanges();
-                MessageBox.Show("Çîáðàæåííÿ äîäàíî!");
+                LoadPicturesTable();
+                MessageBox.Show("Успішно додано!");
             }
         }
-
-        private void DD(object sender, DragEventArgs e)
+        private long GetMaxFileSizeBytes()
         {
-
-        }
-
-        private void DE(object sender, DragEventArgs e)
-        {
-
+            if (long.TryParse(maxFileSize.Text, out long sizeInMb))
+            {
+                return sizeInMb * 1024 * 1024;
+            }
+            return 5 * 1024 * 1024;
         }
     }
 }
