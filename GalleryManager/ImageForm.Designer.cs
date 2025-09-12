@@ -29,48 +29,24 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            btPrevious = new Button();
-            btNext = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.Dock = DockStyle.Top;
+            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(412, 383);
+            pictureBox1.Size = new Size(412, 437);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
-            // btPrevious
-            // 
-            btPrevious.Location = new Point(0, 115);
-            btPrevious.Name = "btPrevious";
-            btPrevious.Size = new Size(46, 146);
-            btPrevious.TabIndex = 1;
-            btPrevious.Text = "<";
-            btPrevious.UseVisualStyleBackColor = true;
-            btPrevious.Click += button1_Click;
-            // 
-            // btNext
-            // 
-            btNext.Location = new Point(366, 115);
-            btNext.Name = "btNext";
-            btNext.Size = new Size(46, 146);
-            btNext.TabIndex = 2;
-            btNext.Text = ">";
-            btNext.UseVisualStyleBackColor = true;
-            btNext.Click += btNext_Click;
             // 
             // ImageForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(412, 437);
-            Controls.Add(btNext);
-            Controls.Add(btPrevious);
             Controls.Add(pictureBox1);
             Name = "ImageForm";
             Text = "ImageForm";
@@ -82,7 +58,5 @@
         #endregion
 
         public PictureBox pictureBox1;
-        private Button btPrevious;
-        private Button btNext;
     }
 }
