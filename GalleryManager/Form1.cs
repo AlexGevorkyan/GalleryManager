@@ -8,6 +8,10 @@ namespace GalleryManager
 {
     public partial class Form1 : Form
     {
+
+        string fileSize;
+        string fileSizer;
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -17,6 +21,7 @@ namespace GalleryManager
         private readonly GalleryContext context;
 
         private string localDir = "./images";
+
 
         public Form1()
         {
@@ -30,6 +35,7 @@ namespace GalleryManager
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             string localDir = "./images";
 
+
             context = new GalleryContext();
 
             tabPage2.AllowDrop = true;
@@ -37,11 +43,20 @@ namespace GalleryManager
             tabPage2.DragDrop += TabPage2_DragDrop;
             tabPage2.DragEnter += TabPage2_DragEnter;
 
+
             if (!Directory.Exists(localDir))
             {
                 Directory.CreateDirectory(localDir);
             }
+            fileSizer = maxFileSize1.Text;
+            MessageBox.Show(fileSizer);
+            fileSize = maxFileSize.Text;
+// MessageBox.Show(fileSize);
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+             
         }
 
 
