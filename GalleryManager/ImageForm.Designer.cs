@@ -42,7 +42,6 @@
             pictureBox1.Size = new Size(412, 383);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // btPrevious
             // 
@@ -74,7 +73,6 @@
             Controls.Add(pictureBox1);
             Name = "ImageForm";
             Text = "ImageForm";
-            Load += ImageForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

@@ -30,25 +30,20 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            dataGridView1 = new DataGridView();
             tabPage2 = new TabPage();
             bt_addPicture = new Button();
             tabPage3 = new TabPage();
-
             maxFileSize1 = new TextBox();
             label2 = new Label();
             maxFileSize = new TextBox();
             label1 = new Label();
+            label3 = new Label();
             tabControl1.SuspendLayout();
-            tabPage3.SuspendLayout();
-
-            dataGridView1 = new DataGridView();
-            tabControl1.SuspendLayout();
-
             tabPage1.SuspendLayout();
-
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage2.SuspendLayout();
-
-
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -66,33 +61,29 @@
             // 
             // tabPage1
             // 
-
-
+            tabPage1.Controls.Add(label3);
             tabPage1.Controls.Add(dataGridView1);
-
-
             tabPage1.Location = new Point(4, 24);
             tabPage1.Margin = new Padding(2, 1, 2, 1);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2, 1, 2, 1);
-
             tabPage1.Size = new Size(808, 337);
-
-
-            tabPage1.Size = new Size(808, 337);
-
-
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gallery";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(-2, 149);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ScrollBars = ScrollBars.Vertical;
+            dataGridView1.Size = new Size(810, 188);
+            dataGridView1.TabIndex = 4;
+            // 
             // tabPage2
             // 
-
-
             tabPage2.Controls.Add(bt_addPicture);
-
-
             tabPage2.Location = new Point(4, 24);
             tabPage2.Margin = new Padding(2, 1, 2, 1);
             tabPage2.Name = "tabPage2";
@@ -101,8 +92,6 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Add Image";
             tabPage2.UseVisualStyleBackColor = true;
-            tabPage2.DragDrop += DD;
-            tabPage2.DragEnter += DE;
             // 
             // bt_addPicture
             // 
@@ -120,12 +109,10 @@
             // 
             // tabPage3
             // 
-
             tabPage3.Controls.Add(maxFileSize1);
             tabPage3.Controls.Add(label2);
             tabPage3.Controls.Add(maxFileSize);
             tabPage3.Controls.Add(label1);
-
             tabPage3.Location = new Point(4, 24);
             tabPage3.Margin = new Padding(2, 1, 2, 1);
             tabPage3.Name = "tabPage3";
@@ -136,7 +123,7 @@
             // 
             // maxFileSize1
             // 
-            maxFileSize1.Location = new Point(27, 106);
+            maxFileSize1.Location = new Point(175, 156);
             maxFileSize1.Name = "maxFileSize1";
             maxFileSize1.Size = new Size(472, 23);
             maxFileSize1.TabIndex = 3;
@@ -145,7 +132,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 88);
+            label2.Location = new Point(391, 122);
             label2.Name = "label2";
             label2.Size = new Size(34, 15);
             label2.TabIndex = 2;
@@ -153,7 +140,7 @@
             // 
             // maxFileSize
             // 
-            maxFileSize.Location = new Point(24, 40);
+            maxFileSize.Location = new Point(326, 58);
             maxFileSize.Name = "maxFileSize";
             maxFileSize.Size = new Size(179, 23);
             maxFileSize.TabIndex = 1;
@@ -162,48 +149,39 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 22);
+            label1.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.Location = new Point(206, 0);
             label1.Name = "label1";
-            label1.Size = new Size(37, 15);
+            label1.Size = new Size(441, 45);
             label1.TabIndex = 0;
-            label1.Text = "Текст";
-
-            // dataGridView1
+            label1.Text = "Максимальний вміст файла";
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(-1, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ScrollBars = ScrollBars.Vertical;
-            dataGridView1.Size = new Size(810, 188);
-            dataGridView1.TabIndex = 4;
-
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.Location = new Point(265, 38);
+            label3.Name = "label3";
+            label3.Size = new Size(304, 45);
+            label3.TabIndex = 5;
+            label3.Text = "Список зображень";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-
             ClientSize = new Size(816, 365);
-
-
-            ClientSize = new Size(816, 365);
-
-
             Controls.Add(tabControl1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Form1";
             Text = "Form1";
             tabControl1.ResumeLayout(false);
-
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabPage2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-
-
-            tabPage1.ResumeLayout(false);
-
-            tabPage2.ResumeLayout(false);
-
-
             ResumeLayout(false);
         }
 
@@ -223,6 +201,6 @@
         private DataGridView dataGridView1;
 
         private Button bt_addPicture;
-
+        private Label label3;
     }
 }

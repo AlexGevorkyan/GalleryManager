@@ -51,12 +51,12 @@ namespace GalleryManager
             fileSizer = maxFileSize1.Text;
             MessageBox.Show(fileSizer);
             fileSize = maxFileSize.Text;
-// MessageBox.Show(fileSize);
+            // MessageBox.Show(fileSize);
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-             
+
         }
 
 
@@ -82,45 +82,18 @@ namespace GalleryManager
         {
             if (e.RowIndex < 0) return;
 
-            byte[] imageData = dataGridView1.Rows[e.RowIndex].Cells["ImageData"].Value as byte[];
+            string imagePath = dataGridView1.Rows[e.RowIndex].Cells["ImagePath"].Value.ToString();
 
-            try
+            if (!File.Exists(imagePath))
             {
-                using (MemoryStream ms = new MemoryStream(imageData))
-                {
-                    DataTable table = (DataTable)dataGridView1.DataSource;
-                    int selectedIndex = e.RowIndex;
-                    ImageForm form = new ImageForm(table, selectedIndex);
-
-                    Image img = Image.FromStream(ms);
-                    form.pictureBox1.Image = img;
-                    form.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                    form.Show();
-                    //Image img = Image.FromStream(ms);
-
-                    //switch (imageCounter % 3)
-                    //{
-                    //    case 0:
-                    //        pictureBox1.Image = img;
-                    //        break;
-                    //    case 1:
-                    //        pictureBox2.Image = img;
-                    //        break;
-                    //    case 2:
-                    //        pictureBox3.Image = img;
-                    //        break;
-                    //}
-
-                    //imageCounter++;
-                }
+                MessageBox.Show("File not found: " + imagePath);
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ïîìèëêà ïðè çàâàíòàæåíí³ çîáðàæåííÿ: " + ex.Message);
-            }
+
+            ImageForm form = new ImageForm((DataTable)dataGridView1.DataSource, e.RowIndex);
+            form.Show();
+
         }
-
-        //private void tabPage1_Click(object sender, EventArgs e)
 
         private void TabPage2_DragEnter(object? sender, DragEventArgs e)
         {
@@ -150,7 +123,7 @@ namespace GalleryManager
                 context.Pictures.Add(picture);
                 context.SaveChanges();
 
-                MessageBox.Show("Çîáðàæåííÿ äîäàíî!");
+                MessageBox.Show("The image is added!");
             }
         }
 
@@ -172,18 +145,8 @@ namespace GalleryManager
                 };
                 context.Pictures.Add(picture);
                 context.SaveChanges();
-                MessageBox.Show("Çîáðàæåííÿ äîäàíî!");
+                MessageBox.Show("The image is added!");
             }
-        }
-
-        private void DD(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void DE(object sender, DragEventArgs e)
-        {
-
         }
     }
 }

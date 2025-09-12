@@ -35,13 +35,16 @@ namespace GalleryManager
 
         private void ShowImage(int index)
         {
-            if (index < 0 || index >= imageTable.Rows.Count) return;
+            string imagePath = imageTable.Rows[index]["ImagePath"].ToString();
 
-            byte[] imageData = imageTable.Rows[index]["ImageData"] as byte[];
-            using (MemoryStream ms = new MemoryStream(imageData))
+            if (File.Exists(imagePath))
             {
-                pictureBox1.Image = Image.FromStream(ms);
+                pictureBox1.Image = Image.FromFile(imagePath);
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                MessageBox.Show("File is not found: " + imagePath);
             }
 
         }
