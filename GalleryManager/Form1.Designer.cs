@@ -31,13 +31,24 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            bt_addPicture = new Button();
             tabPage3 = new TabPage();
+
             maxFileSize1 = new TextBox();
             label2 = new Label();
             maxFileSize = new TextBox();
             label1 = new Label();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
+
+            dataGridView1 = new DataGridView();
+            tabControl1.SuspendLayout();
+
+            tabPage1.SuspendLayout();
+
+            tabPage2.SuspendLayout();
+
+
             SuspendLayout();
             // 
             // tabControl1
@@ -55,17 +66,33 @@
             // 
             // tabPage1
             // 
+
+
+            tabPage1.Controls.Add(dataGridView1);
+
+
             tabPage1.Location = new Point(4, 24);
             tabPage1.Margin = new Padding(2, 1, 2, 1);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2, 1, 2, 1);
+
             tabPage1.Size = new Size(808, 337);
+
+
+            tabPage1.Size = new Size(808, 337);
+
+
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Gallery";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+
+
+            tabPage2.Controls.Add(bt_addPicture);
+
+
             tabPage2.Location = new Point(4, 24);
             tabPage2.Margin = new Padding(2, 1, 2, 1);
             tabPage2.Name = "tabPage2";
@@ -74,13 +101,31 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Add Image";
             tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.DragDrop += DD;
+            tabPage2.DragEnter += DE;
+            // 
+            // bt_addPicture
+            // 
+            bt_addPicture.BackColor = Color.Black;
+            bt_addPicture.Dock = DockStyle.Fill;
+            bt_addPicture.Font = new Font("Segoe UI Historic", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bt_addPicture.ForeColor = Color.Honeydew;
+            bt_addPicture.Location = new Point(2, 1);
+            bt_addPicture.Name = "bt_addPicture";
+            bt_addPicture.Size = new Size(804, 335);
+            bt_addPicture.TabIndex = 0;
+            bt_addPicture.Text = "Add Picture";
+            bt_addPicture.UseVisualStyleBackColor = false;
+            bt_addPicture.Click += bt_addPicture_Click;
             // 
             // tabPage3
             // 
+
             tabPage3.Controls.Add(maxFileSize1);
             tabPage3.Controls.Add(label2);
             tabPage3.Controls.Add(maxFileSize);
             tabPage3.Controls.Add(label1);
+
             tabPage3.Location = new Point(4, 24);
             tabPage3.Margin = new Padding(2, 1, 2, 1);
             tabPage3.Name = "tabPage3";
@@ -122,19 +167,43 @@
             label1.Size = new Size(37, 15);
             label1.TabIndex = 0;
             label1.Text = "Текст";
+
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(-1, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ScrollBars = ScrollBars.Vertical;
+            dataGridView1.Size = new Size(810, 188);
+            dataGridView1.TabIndex = 4;
+
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+
             ClientSize = new Size(816, 365);
+
+
+            ClientSize = new Size(816, 365);
+
+
             Controls.Add(tabControl1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Form1";
             Text = "Form1";
             tabControl1.ResumeLayout(false);
+
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+
+
+            tabPage1.ResumeLayout(false);
+
+            tabPage2.ResumeLayout(false);
+
+
             ResumeLayout(false);
         }
 
@@ -144,9 +213,16 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tabPage3;
+
         private TextBox maxFileSize;
         private Label label1;
         private TextBox maxFileSize1;
         private Label label2;
+
+
+        private DataGridView dataGridView1;
+
+        private Button bt_addPicture;
+
     }
 }
