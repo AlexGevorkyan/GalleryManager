@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label3 = new Label();
             dataGridView1 = new DataGridView();
             tabPage2 = new TabPage();
             bt_addPicture = new Button();
@@ -38,7 +39,6 @@
             label2 = new Label();
             maxFileSize = new TextBox();
             label1 = new Label();
-            label3 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -72,13 +72,23 @@
             tabPage1.Text = "Gallery";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.Location = new Point(264, 1);
+            label3.Name = "label3";
+            label3.Size = new Size(304, 45);
+            label3.TabIndex = 5;
+            label3.Text = "Список зображень";
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(-2, 149);
+            dataGridView1.Location = new Point(2, 63);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ScrollBars = ScrollBars.Vertical;
-            dataGridView1.Size = new Size(810, 188);
+            dataGridView1.Size = new Size(810, 274);
             dataGridView1.TabIndex = 4;
             // 
             // tabPage2
@@ -123,24 +133,25 @@
             // 
             // maxFileSize1
             // 
-            maxFileSize1.Location = new Point(175, 156);
+            maxFileSize1.Location = new Point(3, 138);
             maxFileSize1.Name = "maxFileSize1";
             maxFileSize1.Size = new Size(472, 23);
             maxFileSize1.TabIndex = 3;
-            maxFileSize1.Text = "Ми можемо працювати лише з файлами з такими розширеннями: .png , .jpg , .gift";
+            maxFileSize1.Text = "Ми можемо працювати лише з файлами з такими розширеннями: .png , .jpg , .gif";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(391, 122);
+            label2.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold);
+            label2.Location = new Point(0, 90);
             label2.Name = "label2";
-            label2.Size = new Size(34, 15);
+            label2.Size = new Size(217, 45);
             label2.TabIndex = 2;
-            label2.Text = "Text2";
+            label2.Text = "Необхідності";
             // 
             // maxFileSize
             // 
-            maxFileSize.Location = new Point(326, 58);
+            maxFileSize.Location = new Point(3, 48);
             maxFileSize.Name = "maxFileSize";
             maxFileSize.Size = new Size(179, 23);
             maxFileSize.TabIndex = 1;
@@ -150,21 +161,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(206, 0);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(441, 45);
             label1.TabIndex = 0;
             label1.Text = "Максимальний вміст файла";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.Location = new Point(265, 38);
-            label3.Name = "label3";
-            label3.Size = new Size(304, 45);
-            label3.TabIndex = 5;
-            label3.Text = "Список зображень";
             // 
             // Form1
             // 
@@ -172,6 +173,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(816, 365);
             Controls.Add(tabControl1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(2, 1, 2, 1);
             Name = "Form1";
             Text = "Form1";

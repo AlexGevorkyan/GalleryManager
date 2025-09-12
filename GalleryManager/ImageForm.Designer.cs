@@ -36,7 +36,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Dock = DockStyle.Top;
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(412, 383);
@@ -45,6 +45,7 @@
             // 
             // btPrevious
             // 
+            btPrevious.Anchor = AnchorStyles.Left;
             btPrevious.Location = new Point(0, 115);
             btPrevious.Name = "btPrevious";
             btPrevious.Size = new Size(46, 146);
@@ -55,6 +56,7 @@
             // 
             // btNext
             // 
+            btNext.Anchor = AnchorStyles.Right;
             btNext.Location = new Point(366, 115);
             btNext.Name = "btNext";
             btNext.Size = new Size(46, 146);

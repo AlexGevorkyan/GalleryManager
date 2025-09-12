@@ -54,12 +54,6 @@ namespace GalleryManager
             // MessageBox.Show(fileSize);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void LoadPicturesTable()
         {
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GalleryDb;Integrated Security=True";
@@ -123,6 +117,8 @@ namespace GalleryManager
                 context.Pictures.Add(picture);
                 context.SaveChanges();
 
+                LoadPicturesTable();
+
                 MessageBox.Show("The image is added!");
             }
         }
@@ -145,6 +141,9 @@ namespace GalleryManager
                 };
                 context.Pictures.Add(picture);
                 context.SaveChanges();
+
+                LoadPicturesTable();
+
                 MessageBox.Show("The image is added!");
             }
         }
