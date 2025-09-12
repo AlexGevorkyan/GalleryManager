@@ -35,14 +35,14 @@ namespace GalleryManager
 
         private void ShowImage(int index)
         {
-            if (index < 0 || index >= imageTable.Rows.Count) return;
+            //if (index < 0 || index >= imageTable.Rows.Count) return;
 
-            byte[] imageData = imageTable.Rows[index]["ImageData"] as byte[];
-            using (MemoryStream ms = new MemoryStream(imageData))
-            {
-                pictureBox1.Image = Image.FromStream(ms);
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            }
+            //byte[] imageData = imageTable.Rows[index]["ImageData"] as byte[];
+            //using (MemoryStream ms = new MemoryStream(imageData))
+            //{
+            //    pictureBox1.Image = Image.FromStream(ms);
+            //    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            //}
 
         }
 
