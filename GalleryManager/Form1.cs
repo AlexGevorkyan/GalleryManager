@@ -36,6 +36,8 @@ namespace GalleryManager
             string localDir = "./images";
 
 
+            this.Text = "Gallery Manager";
+
             context = new GalleryContext();
 
             tabPage2.AllowDrop = true;
